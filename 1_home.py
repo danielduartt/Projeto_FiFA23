@@ -1,7 +1,5 @@
 import streamlit as st 
 import pandas as pd 
-import plotly.graph_objects as go 
-
 
 
 df_data = pd.read_csv("CLEAN_FIFA23_official_data.csv", index_col = 0)
