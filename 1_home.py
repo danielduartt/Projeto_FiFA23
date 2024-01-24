@@ -61,37 +61,3 @@ st.dataframe(df_filtered[columns],
              })
 
 st.markdown("---")
-
-df_team = df_data[df_data["Club"] == club]
-df_nationality = df_team.groupby(["Nationality"]).size().reset_index()
-df_nationality.rename(columns={0: 'Total'}, inplace=True)
-
-fig = go.Figure(
-    data = go.Bar()
-)
-
-fig.add_trace(go.Bar(
-    x=df_nationality['Nationality'],
-    y=df_nationality['Total'],
-    text=df_nationality['Total'],  # Mostrar o valor em cima das barras
-    textposition='outside',  # Posição do texto (pode ser 'inside' também)
-    hoverinfo='y+text'  # Informações ao passar o mouse (valor e texto)
-))
-
-fig.update_layout(
-    title='Quantidade de Jogadores por Nacionalidade',
-    xaxis_title='Nacionalidade',
-    yaxis_title='Quantidade Total',
-    font=dict(family="Arial, sans-serif", size=12, color="RebeccaPurple"),  # Estilo da fonte
-    paper_bgcolor='lightgray',  # Cor de fundo do gráfico
-    plot_bgcolor='whitesmoke',  # Cor de fundo da área do gráfico
-    barmode='group'  # Agrupar barras para cada categoria
-)
-
-fig.update_layout(
-    xaxis=dict(showline=True, showgrid=False),
-    yaxis=dict(showline=True, showgrid=True),
-    showlegend=False  # Removendo a legenda neste exemplo
-)
-
-st.plotly_chart(fig)
