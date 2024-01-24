@@ -59,4 +59,4 @@ st.dataframe(df_filtered[columns],
                 "Flag": st.column_config.ImageColumn("Country"),
              })
 
-st.markdow("---")
+st.markdown("---")
